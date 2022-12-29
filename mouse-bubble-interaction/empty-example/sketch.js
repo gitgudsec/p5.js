@@ -1,5 +1,6 @@
 // Simple test: 5 random bubbles without fill
 // If you click on a bubble, it fills with colour
+// Note: added a toggle on every 2nd click
 
 let bubbles = [];
 
@@ -39,7 +40,16 @@ class Bubble {
   clicked(x, y) {
     let d = dist(x, y, this.x, this.y)
     if (d < this.r) {
-    this.brightness = 255;
+      if (this.brightness == 0)
+      {
+        this.brightness = 255;
+      }
+      else {
+      this.brightness = 0;
+      }
+
+
+    
     }
   }
 
