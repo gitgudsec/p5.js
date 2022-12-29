@@ -26,6 +26,12 @@ function draw() {
   }
 }
 
+function mousePressed() {
+  for (let i = 0; i < bubbles.length; i++){
+    bubbles[i].clicked(mouseX, mouseY, i);
+  }
+}
+
 class Bubble {
   constructor(x,y,r){
     this.x = x;
@@ -33,6 +39,16 @@ class Bubble {
     this.r = r;
     this.brightness = 0;
   }
+
+  clicked(x, y, i){
+    // as per usual test if it was on the actual bubble
+    let d = dist(x, y, this.x, this.y)
+    if (d < this.r){
+      bubbles.splice(i, 1);
+    }
+
+  }
+
 
   rollover(x, y) {
     let d = dist(x, y, this.x, this.y)
