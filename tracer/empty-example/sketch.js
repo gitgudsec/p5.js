@@ -4,14 +4,7 @@ let bubbles = [];
 
 function setup() {
   createCanvas(600, 600);
-  frameRate(20);
-  for (let i = 0; i < 5; i++){
-  let x = random(width);
-  let y = random(height);
-  let r = random(10, 50);
-  let b = new Bubble(x, y, r);
-  bubbles.push(b);
-  }
+  frameRate(30);
 }
 
 function draw() {
@@ -26,12 +19,17 @@ function draw() {
     bubbles[i].move();
     bubbles[i].show();
   }
+  // this starts popping bubbles once they increase beyond 7
+  if (bubbles.length > 7)
+  {
+    bubbles.splice(0,1);
+  }
 }
 
-function mousePressed() {
-  for (let i = bubbles.length-1; i >=0; i--){
-    bubbles[i].clicked(mouseX, mouseY, i);
-  }
+function mouseDragged() {
+  let r = 40;
+  let b = new Bubble(mouseX, mouseY, random(10,40));
+  bubbles.push(b);
 }
 
 class Bubble {
@@ -48,15 +46,10 @@ class Bubble {
     if (d < this.r){
       bubbles.splice(i, 1);
     }
-
   }
 
   changeColor(bright){
-    
       this.brightness = bright;
-    
-   
-    
   }
 
 
