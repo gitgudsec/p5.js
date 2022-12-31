@@ -17,8 +17,11 @@ function setup() {
 function draw() {
   background(0);
   for (let i = 0; i < bubbles.length; i++){
-    if (bubbles[i].rollover(mouseX, mouseY)){
-      bubbles[i].changeColor();
+    if (bubbles[i].contains(mouseX, mouseY)){
+      bubbles[i].changeColor(255);
+    }
+    else{
+      bubbles[i].changeColor(0);
     }
     bubbles[i].move();
     bubbles[i].show();
@@ -48,16 +51,16 @@ class Bubble {
 
   }
 
-  changeColor(){
+  changeColor(bright){
     
-      this.brightness = 255;
+      this.brightness = bright;
     
    
     
   }
 
 
-  rollover(x, y) {
+  contains(x, y) {
     let d = dist(x, y, this.x, this.y)
     if (d < this.r) {
       return true;
