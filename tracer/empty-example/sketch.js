@@ -29,7 +29,7 @@ function draw() {
 }
 
 function mousePressed() {
-  for (let i = 0; i < bubbles.length; i++){
+  for (let i = bubbles.length-1; i >=0; i--){
     bubbles[i].clicked(mouseX, mouseY, i);
   }
 }
