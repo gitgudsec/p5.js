@@ -3,8 +3,8 @@ let bubble2;
 
 function setup(){
   createCanvas(600, 600);
-  bubble1 = new Bubble(200, 200, 50);
-  bubble2 = new Bubble(300, 300, 50);
+  bubble1 = new Bubble(200, 200, 40);
+  bubble2 = new Bubble(300, 300, 40);
 }
 
 function draw(){
@@ -13,12 +13,12 @@ function draw(){
   if (d < bubble1.r + bubble2.r){
     background(200, 0, 100);
   }
-  else {
+  
   bubble1.show();
-  bubble1.move();
   bubble2.show();
+  bubble1.move();
   bubble2.move();
- }
+ 
 }
 
 class Bubble{
@@ -33,15 +33,7 @@ class Bubble{
     this.brightness = bright;
   }
 
-  contains(px, py) {
-    let d = dist(px, py, this.x, this.y);
-    if (d < this.r) {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
+ 
 
   move() {
     this.x = this.x + random(-5, 5);
