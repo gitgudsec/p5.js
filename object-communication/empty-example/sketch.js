@@ -12,18 +12,18 @@ function setup(){
 
 function draw(){
   background(0);
-  for (let i = 0; i < bubble.length; i++)
-  {
-    bubble[i].move();
-    bubble[i].show();
-  }
-
   for (let i = 0; i < bubble.length; i++) {
     for (let j = i + 1; j < bubble.length; j++) {
       if (bubble[i].intersects(bubble[j])) {
         background(200, 0, 100);
       }
     }
+  }
+
+  for (let i = 0; i < bubble.length; i++)
+  {
+    bubble[i].move();
+    bubble[i].show();
   }
 
   }
