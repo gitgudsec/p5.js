@@ -17,16 +17,16 @@ function draw(){
     bubble[i].move();
     bubble[i].show();
   }
- 
 
+  for (let i = 0; i < bubble.length; i++) {
+    for (let j = i + 1; j < bubble.length; j++) {
+      if (bubble[i].intersects(bubble[j])) {
+        background(200, 0, 100);
+      }
+    }
+  }
 
-  // if (bubble[i].intersects(bubble2)) {
-  //   background(200, 0, 100);
-  // }
-  
- 
- 
-}
+  }
 
 class Bubble{
   constructor(x, y, r) {
@@ -50,7 +50,6 @@ class Bubble{
     }
   }
  
-
   move() {
     this.x = this.x + random(-5, 5);
     this.y = this.y + random(-5, 5);
