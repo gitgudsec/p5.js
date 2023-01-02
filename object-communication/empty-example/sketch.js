@@ -1,23 +1,30 @@
-let bubble1;
-let bubble2;
+let bubble = [];
 
 function setup(){
   createCanvas(600, 600);
-  bubble1 = new Bubble(200, 200, 40);
-  bubble2 = new Bubble(300, 300, 40);
+  
+  let n = 10;
+  for (let i=0; i < n; i++)
+  {
+    bubble[i] = new Bubble (random(0,600), random(0, 600), random (10, 25))
+  }
 }
 
 function draw(){
   background(0);
- 
-  if (bubble1.intersects(bubble2)) {
-    background(200, 0, 100);
+  for (let i = 0; i < bubble.length; i++)
+  {
+    bubble[i].move();
+    bubble[i].show();
   }
+ 
+
+
+  // if (bubble[i].intersects(bubble2)) {
+  //   background(200, 0, 100);
+  // }
   
-  bubble1.show();
-  bubble2.show();
-  bubble1.move();
-  bubble2.move();
+ 
  
 }
 
