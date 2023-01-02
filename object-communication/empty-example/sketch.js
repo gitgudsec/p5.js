@@ -9,8 +9,8 @@ function setup(){
 
 function draw(){
   background(0);
-  let d = dist(bubble1.x, bubble1.y, bubble2.x, bubble2.y);
-  if (d < bubble1.r + bubble2.r){
+ 
+  if (bubble1.intersects(bubble2)) {
     background(200, 0, 100);
   }
   
@@ -33,6 +33,15 @@ class Bubble{
     this.brightness = bright;
   }
 
+  intersects(other){
+    let d = dist(this.x, this.y, other.x, other.y);
+    if (d < this.r + other.r){
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
  
 
   move() {
