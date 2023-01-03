@@ -3,7 +3,7 @@ let bubbles = [];
 // This is where we will load an image:
 let cage;
 function preload() {
-  cage = loadImage("cage.png");
+  cage = loadImage("cage0.png");
 }
 
 function setup() {
@@ -61,9 +61,12 @@ class Bubble {
   }
 
   show(){
-    stroke(255, 50, 120);
-    strokeWeight(5);
-    fill(this.brightness, 100);
-    ellipse(this.x, this.y, this.r, this.r);
+    
+    image(cage, this.x, this.y, this.r, this.r)    
+    
+    // stroke(255, 50, 120);
+    // strokeWeight(5);
+    // fill(this.brightness, 100);
+    // ellipse(this.x, this.y, this.r, this.r);
   }
 }
