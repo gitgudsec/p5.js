@@ -42,13 +42,15 @@ class Bubble {
   clicked(x, y) {
     let d = dist(x, y, this.x, this.y)
     if (d < this.r) {
-      if (this.brightness == 0)
-      {
-        this.brightness = 255;
-      }
-      else {
-      this.brightness = 0;
-      }
+      
+
+      // if (this.brightness == 0)
+      // {
+      
+      // }
+      // else {
+      // this.brightness = 0;
+      // }
 
     }
   }
@@ -59,9 +61,9 @@ class Bubble {
   }
 
   show(){
-// This is now where we tell it to use image as fill
-    image(cage, this.x, this.y, this.r, this.r);
-
-
+    stroke(255, 50, 120);
+    strokeWeight(5);
+    fill(this.brightness, 100);
+    ellipse(this.x, this.y, this.r, this.r);
   }
 }
