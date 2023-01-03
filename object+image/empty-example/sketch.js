@@ -8,7 +8,7 @@ function preload() {
 
 function setup() {
   createCanvas(600, 600);
-  for (let i = 0; i < 10; i++){
+  for (let i = 0; i < 5; i++){
   let x = random(width);
   let y = random(height);
   let r = random(80, 120);
