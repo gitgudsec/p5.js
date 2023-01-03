@@ -1,9 +1,12 @@
 let bubbles = [];
 
 // This is where we will load an image:
-let cage;
+let cage = [];
 function preload() {
-  cage = loadImage("cage0.png");
+  for (let k = 0; k < 5; k++ ){
+    cage[k] = loadImage("cage"+ k +".png");
+  }
+  
 }
 
 function setup() {
@@ -62,7 +65,7 @@ class Bubble {
 
   show(){
     
-    image(cage, this.x, this.y, this.r, this.r)    
+    image(cage[3], this.x, this.y, this.r, this.r)    
     
     // stroke(255, 50, 120);
     // strokeWeight(5);
