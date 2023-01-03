@@ -11,7 +11,7 @@ function setup() {
   for (let i = 0; i < 10; i++){
   let x = random(width);
   let y = random(height);
-  let r = random(50);
+  let r = random(80, 120);
   let b = new Bubble(x, y, r);
   bubbles.push(b);
   }
@@ -60,7 +60,7 @@ class Bubble {
 
   show(){
 // This is now where we tell it to use image as fill
-    image(cage, this.x, this.y);
+    image(cage, this.x, this.y, this.r, this.r);
 
 
   }
