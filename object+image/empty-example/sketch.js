@@ -35,11 +35,11 @@ function draw() {
 }
 
 class Bubble {
-  constructor(x,y,r){
+  constructor(x, y, r, img){
     this.x = x;
     this.y = y;
     this.r = r;
-    this.brightness = 0;
+    this.cage = img; 
   }
 
   clicked(x, y) {
@@ -65,7 +65,7 @@ class Bubble {
 
   show(){
     
-    image(cage[3], this.x, this.y, this.r, this.r)    
+    image(cage[2], this.x, this.y, this.r, this.r)    
     
     // stroke(255, 50, 120);
     // strokeWeight(5);
