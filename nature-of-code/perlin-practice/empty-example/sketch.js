@@ -1,9 +1,13 @@
 let xoff = 0;
 let yoff = 0;
-let cage; 
+let cage = []; 
 
 function preload(){
-  cage = loadImage("cage2.png");
+  for (let k = 0; k < 1000; k++)
+  {
+    cage[k] = loadImage("cage2.png");
+  }
+  
 }
 
 function setup() {
@@ -13,17 +17,25 @@ function setup() {
 
 function draw() {
   background(69);
-  // let x = random(600);
-  // let x = 600*noise(100);
 
+  a = random(2000);
+  b = random(2000);
+  cager(a, b);
+  a = random(100);
+  b = random(100);
+  cager(a, b);
+
+  xoff -= 0.552; 
+  yoff -= 0.159;
+
+}
+
+function cager(a, b){
   let x = map(noise(xoff), 0, 1, 0, width);
   let y = map(noise(yoff), 0, 1, 0, height);
+for (let k = 0; k < 1000; k++)
+{
   
-  image(cage, x, y, 100, 100);
-
-  xoff += 0.012; 
-  yoff += 0.019;
-
-  
-
+  image(cage[k], x+a, y+b, 200, 200);
+}
 }
