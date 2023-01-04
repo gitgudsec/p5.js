@@ -21,8 +21,8 @@ function draw() {
   a = random(2000);
   b = random(2000);
   cager(a, b);
-  a = random(100);
-  b = random(100);
+  a = random(600);
+  b = random(600);
   cager(a, b);
 
   xoff -= 0.552; 
