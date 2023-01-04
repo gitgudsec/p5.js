@@ -6,7 +6,6 @@ function preload() {
   for (let k = 0; k < 5; k++ ){
     cage[k] = loadImage("cage"+ k +".png");
   }
-  
 }
 
 function setup() {
@@ -15,7 +14,8 @@ function setup() {
   let x = random(width);
   let y = random(height);
   let r = random(80, 120);
-  let b = new Bubble(x, y, r);
+  let img = random(cage);
+  let b = new Bubble(x, y, r, img);
   bubbles.push(b);
   }
 }
@@ -45,16 +45,9 @@ class Bubble {
   clicked(x, y) {
     let d = dist(x, y, this.x, this.y)
     if (d < this.r) {
-      
+      this.cage = random(cage);
 
-      // if (this.brightness == 0)
-      // {
-      
-      // }
-      // else {
-      // this.brightness = 0;
-      // }
-
+  
     }
   }
 
@@ -65,7 +58,7 @@ class Bubble {
 
   show(){
     
-    image(cage[2], this.x, this.y, this.r, this.r)    
+    image(this.cage, this.x, this.y, this.r, this.r)    
     
     // stroke(255, 50, 120);
     // strokeWeight(5);
