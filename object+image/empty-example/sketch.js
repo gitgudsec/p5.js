@@ -4,7 +4,8 @@ let bubbles = [];
 let cage = [];
 function preload() {
   for (let k = 0; k < 5; k++ ){
-    cage[k] = loadImage("cage"+ k +".png");
+// note use of template literal
+    cage[k] = loadImage(`cage${k}.png`);
   }
 }
 
