@@ -1,12 +1,4 @@
 
-// function preload(){
-//   for (let k = 0; k < 1000; k++)
-//   {
-//     cage[k] = loadImage("cage2.png");
-//   }
-  
-
-
 function setup() {
   createCanvas(600, 600);
   frameRate(50);
@@ -14,9 +6,10 @@ function setup() {
 
 function draw() {
   background(69);
-  ellipse(300, 300, 40, 40)
-
-
+  let x = 600*noise(600);
+ 
+  ellipse(x, 300, 40, 40)
+ 
 
 }
 
