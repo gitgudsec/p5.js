@@ -2,7 +2,9 @@ let beavis = [];
 let counter = 0; // counter variable to keep track of the current index
 let timer = 0; // timer variable to control the amount of time each image is displayed
 let mover = true; 
-let x = 51;
+let xoff = 0;
+let yoff = 0;
+
 
 function preload() {
   for (let i = 0; i < 9; i++) {
@@ -25,30 +27,14 @@ function draw() {
       counter = 0; // reset the counter
     }
   }
-
-  if (mover == true)
-  {
-    x = x + 2;
-  }
-
-  if (mover == false)
-  {
-    x = x - 2; 
-  }
-
-  if (x > width-50)
-  {
-    mover = false;
-  }
-
-  if (x < 50)
-  {
-    mover = true;
-  }
+  let x = width*noise(xoff);
+  let y = height*noise(yoff);
+ 
+  xoff += 0.0015;
+  yoff += 0.0025;
   
-  // img.mirror(true, false);
 
-  image(img, x, 50); // display the image at the current index
+  image(img, x, y); // display the image at the current index
 
 
 }
