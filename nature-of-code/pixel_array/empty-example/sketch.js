@@ -1,6 +1,7 @@
 
 function setup() {
   createCanvas(600, 600);
+  pixelDensity(1);
 }
 
 function draw() {
@@ -8,9 +9,17 @@ function draw() {
 background(109, 231, 100);
 loadPixels();
 
-for (let i = 1000000; i < 10000000; i++)
+for (let y = 0; y < height; y++)
 {
-  pixels[i] = 255;
+  for (let x = 0; x < width; x++)
+{
+  let index = (x + y *width) * 4;
+  pixels[index+0] = 255;            // R
+  pixels[index+1] = 10;          // G
+  pixels[index+2] = 110;          // B
+  pixels[index+3] = 100;          // alpha
+}
+  
 }
 
 
