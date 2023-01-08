@@ -14,10 +14,10 @@ for (let y = 0; y < height; y++)
   for (let x = 0; x < width; x++)
 {
   let index = (x + y *width) * 4;
-  pixels[index+0] = 255;            // R
-  pixels[index+1] = 10;          // G
-  pixels[index+2] = 110;          // B
-  pixels[index+3] = 100;          // alpha
+  pixels[index+0] = x;            // R
+  pixels[index+1] = 100000-random(y)*x+y;          // G
+  pixels[index+2] = y;          // B
+  pixels[index+3] = 255;          // alpha
 }
   
 }
