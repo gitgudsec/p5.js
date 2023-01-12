@@ -2,6 +2,7 @@ var video;
 var button;
 var snapshots = [];
 let counter = 0;
+let total = 43;
 
 
 function setup() {
@@ -28,7 +29,7 @@ function takesnap() {
 
 function draw() {
   if(go){
-    if (counter == 43){
+    if (counter == total){
       counter = 0;
     }
     
