@@ -1,11 +1,13 @@
 var video;
 var button;
 var snapshots = [];
+let counter = 0;
+
 
 function setup() {
   createCanvas(800, 240);
   background(69);
-  frameRate(2)
+  frameRate(10)
   scale(-1, 1);
   video = createCapture(VIDEO, ready);
   video.size(320, 240);
@@ -26,7 +28,13 @@ function takesnap() {
 
 function draw() {
   if(go){
-    snapshots.push(video.get());
+    if (counter == 43){
+      counter = 0;
+    }
+    
+    snapshots[counter] = video.get();
+    counter++;
+
   }
   
   var w = 80;
