@@ -1,24 +1,37 @@
 var video;
 var button;
+var snapshots = [];
 
 function setup() {
-  createCanvas(320, 240);
+  createCanvas(800, 240);
   background(69);
+  frameRate(2)
+  scale(-1, 1);
   video = createCapture(VIDEO);
   video.size(320, 240);
-  // video.hide();
+
   button = createButton('snap');
   button.mousePressed(takesnap);
 }
 
 function takesnap() {
-  var img = video.get();
-  push();
-  scale(-1, 1);
-  image(img, -img.width, 0);
-  pop();
-  save(img, 'myImage.jpg');
+ 
 }
 
 function draw() {
+  snapshots.push(video.get());
+  var w = 80;
+  var h = 60;
+  var x = 0;
+  var y = 0;
+  for (var i = 0; i < snapshots.length; i++){
+    tint(255, 50);
+    image(snapshots[i], x, y, w, h);
+    x = x + w;
+    if (x>width)
+    {
+      x = 0;
+      y = y+h;
+    }
+  }
 }
