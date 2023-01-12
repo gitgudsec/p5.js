@@ -43,8 +43,9 @@ function draw() {
   var x = 0;
   var y = 0;
   for (var i = 0; i < snapshots.length; i++){
-    tint(255, 50);
-    image(snapshots[i], x, y, w, h);
+   
+    var index = (i + frameCount) % snapshots.length;
+    image(snapshots[index], x, y, w, h);
     x = x + w;
     if (x>width)
     {
