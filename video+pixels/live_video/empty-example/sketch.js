@@ -1,17 +1,24 @@
 var video;
-var button; 
+var button;
 
 function setup() {
-  // createCanvas(320, 240);
-  // background(69)
+  createCanvas(320, 240);
+  background(69);
   video = createCapture(VIDEO);
-  video.size(320, 240)
-  button = createButton('snap')
-  // video.hide()
+  video.size(320, 240);
+  // video.hide();
+  button = createButton('snap');
+  button.mousePressed(takesnap);
+}
+
+function takesnap() {
+  var img = video.get();
+  push();
+  scale(-1, 1);
+  image(img, -img.width, 0);
+  pop();
+  save(img, 'myImage.jpg');
 }
 
 function draw() {
-//   video.loadPixels();
-//   tint(255, 0, 150);
-//  image(video, 0, 0, mouseX, 240);
 }
