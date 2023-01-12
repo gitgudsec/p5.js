@@ -1,7 +1,29 @@
+
 function setup() {
-  // put setup code here
+  createCanvas(600, 600);
+  pixelDensity(1);
 }
 
 function draw() {
-  // put drawing code here
+// we have to inform p5.js we want to work with "the pixel"
+background(109, 231, 100);
+loadPixels();
+
+for (let y = 0; y < height; y++)
+{
+  for (let x = 0; x < width; x++)
+{
+ 
+  let index = (x + y *width) * 4;
+  pixels[index+0] = y;            // R
+  pixels[index+1] = 10000-random(y)*x+y;          // G
+  pixels[index+2] = x*x;          // B
+  pixels[index+3] = 255;          // alpha
+}
+  
+}
+
+
+updatePixels();
+
 }
