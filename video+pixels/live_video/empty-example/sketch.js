@@ -7,11 +7,17 @@ function setup() {
   background(69);
   frameRate(2)
   scale(-1, 1);
-  video = createCapture(VIDEO);
+  video = createCapture(VIDEO, ready);
   video.size(320, 240);
 
-  button = createButton('snap');
-  button.mousePressed(takesnap);
+  // button = createButton('snap');
+  // button.mousePressed(takesnap);
+}
+
+var go = false;
+
+function ready() {
+  go = true;
 }
 
 function takesnap() {
@@ -19,7 +25,10 @@ function takesnap() {
 }
 
 function draw() {
-  snapshots.push(video.get());
+  if(go){
+    snapshots.push(video.get());
+  }
+  
   var w = 80;
   var h = 60;
   var x = 0;
