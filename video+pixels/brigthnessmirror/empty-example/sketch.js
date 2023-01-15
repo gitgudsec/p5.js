@@ -1,12 +1,15 @@
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(320, 240);
   pixelDensity(1);
+  video = createCapture(VIDEO);
+  video.size(320, 240)
 }
 
 function draw() {
 // we have to inform p5.js we want to work with "the pixel"
 background(109, 231, 100);
+video.loadPixels();
 loadPixels();
 
 for (let y = 0; y < height; y++)
@@ -15,9 +18,9 @@ for (let y = 0; y < height; y++)
 {
  
   let index = (x + y *width) * 4;
-  pixels[index+0] = y;            // R
-  pixels[index+1] = 10000-random(y)*x+y;          // G
-  pixels[index+2] = x*x;          // B
+  pixels[index+0] = x;            // R
+  pixels[index+1] = random(255);          // G
+  pixels[index+2] = y;          // B
   pixels[index+3] = 255;          // alpha
 }
   
