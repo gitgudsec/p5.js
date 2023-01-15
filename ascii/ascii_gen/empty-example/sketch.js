@@ -1,22 +1,30 @@
-/**
-@author ertdfgcvb
-@title  Coordinates: x, y
-@desc   Use of coord.x and coord.y
-*/
+const density = 'Ñ@#W$9876543210?!abc;:+=-,._ ';
 
-const density = 'Ñ@#W$9876543210?!abc;:+=-,._ '
+function main(coord, context, cursor, buffer) {
+  // Shortcuts for frame, cols and coord (x, y)
+  const {cols, frame } = context;
+  const {x, y} = coord;
 
-export function main(coord, context, cursor, buffer) {
-	// To generate an output return a single character
-	// or an object with a “char” field, for example {char: 'x'}
+  // -1 for even lines, 1 for odd lines
+  const sign = y % 2 * 2 - 1;
+  const index = (cols + y + x * sign + frame) % density.length;
 
-	// Shortcuts for frame, cols and coord (x, y)
-	const {cols, frame } = context
-	const {x, y} = coord
+  return density[index];
+}
 
-	// -1 for even lines, 1 for odd lines
-	const sign = y % 2 * 2 - 1
-	const index = (cols + y + x * sign + frame) % density.length
+function setup() {
+  createCanvas(800, 600);
+  background(255);
+  textSize(32);
+}
 
-	return density[index]
+function draw() {
+  for (let x = 0; x < width; x += random(100)) {
+    for (let y = 0; y < height; y += random(25)) {
+      let coord = {x, y};
+      let context = {cols: 50, frame: frameCount};
+      let char = main(coord, context);
+      text(char, x, y);
+    }
+  }
 }
