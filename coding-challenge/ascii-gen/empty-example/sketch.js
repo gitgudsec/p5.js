@@ -13,7 +13,7 @@ function setup(){
 
 function draw() {
     background(220);
-    image(kip2, 0, 0, width, height);
+    // image(kip2, 0, 0, width, height);
     kip2.loadPixels();
 
     let w = width / kip2.width;
@@ -28,7 +28,9 @@ function draw() {
 
             noStroke();
             fill(r, g, b);
-            suqare(i*w, j*h, w);
+            // square(i*w, j*h, w);
+            textSize(w);
+            text('X', i * w, j * h);
         }
     }
 
