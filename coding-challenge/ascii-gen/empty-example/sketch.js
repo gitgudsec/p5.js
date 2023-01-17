@@ -12,7 +12,7 @@ function setup(){
 }
 
 function draw() {
-    background(220);
+    background(0);
     // image(kip2, 0, 0, width, height);
     kip2.loadPixels();
 
@@ -29,8 +29,12 @@ function draw() {
             noStroke();
             fill(r, g, b);
             // square(i*w, j*h, w);
+
+            const len = density.length;
+            
             textSize(w);
-            text('X', i * w, j * h);
+            textAlign(CENTER)
+            text('X', i * w + w * 0.5, j * h + h * 0.5);
         }
     }
 
