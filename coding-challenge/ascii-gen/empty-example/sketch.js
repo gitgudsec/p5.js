@@ -31,7 +31,7 @@ function draw() {
             // square(i*w, j*h, w);
 
             const len = density.length;
-            const charIndex = mapfloor((avg, 0, 255, 0, len));
+            const charIndex = floor(map(avg, 0, 255, 0, len));
 
             textSize(w);
             textAlign(CENTER)
